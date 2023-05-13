@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{% block title %}Rekognition face collection{% endblock %} 
+
+{% block content %}
+
+    <div class="mainContainer">
+        
+        <!-- This table is required to get the face ids of the registered students -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Face ID</th>
+                    <th>External ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for face in faces %}
+                    <tr>
+                        <td>{{ face.face_id }}</td>
+                        <td>{{ face.external_id }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

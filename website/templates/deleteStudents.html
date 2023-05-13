@@ -30,17 +30,32 @@
                         required
                     >
                         <option disabled selected value> -- select a student -- </option>
-                        <option value="student1">John Doe</option>
-                        <option value="student1">Jane Doe</option>
+                        {% for face in faces %}
+                        <option value="{{ face.face_id }}">{{ face.external_id.replace("_", " ") }}</option>
+                        {% endfor %}
                     </select>
 
                     <br><br>
+
+                    <!-- HIDDEN Get the value of the current selected item External Image ID-->
+                    <input type="text" name="studentname" id="studentname">
+                    <input type="text" name="face_id" id="face_id">
+                    
 
                     <div class="formBtn">
                         <input type="submit" class="submitBtn" value="Remove student">
                     </div>
                 </form>
-    
+        
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for message in messages %}
+                                <li><i>{{ message }}</i></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
             </div>
         </div>
     </div>
