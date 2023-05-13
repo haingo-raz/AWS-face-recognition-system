@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% block title %}Attendance log{% endblock %} 
+
+<!-- Items from dynamoDB database are displayed here -->
+<!-- The items are pulled as the url changes to the url of this page -->
+
+{% block content %}
+    <div class="menuLeft">
+        <a href="/upload" class="navLink">Upload a video</a>
+        <a href="/attendance/log" class="navLink">View attendance</a>
+        <a href="/add/student" class="navLink">Register a student</a>
+        <a href="/student/list" class="navLink">View all students</a>
+    </div>
+
+    <div class="mainContainer">
+        <div class="attendanceLog" id="attendanceTable">
+            <h2>Attendance log</h2>
+    
+            <input type="date" id="filter-date">  
+            <!-- <input id="timestamp-input" type="text" placeholder="Enter timestamp"> -->
+            
+            <button class="reload" onclick="location.reload()"><i class="fas fa-redo"></i></button>
+    
+            <table id="myTable" class="attendancetable">
+                <thead>
+                    <tr>
+                        <th>Student name</th>
+                        <th>Date</th>
+                        <th>Student ID</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>13 Mai 2023</td>
+                        <td>S00123456</td>
+                        <td>Present</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>13 Mai 2023</td>
+                        <td>S00123457</td>
+                        <td>Absent</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

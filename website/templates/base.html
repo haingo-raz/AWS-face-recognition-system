@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/Navbar.css')}}"/>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/VideoUpload.css')}}"/>  
+        <link rel="stylesheet" href="{{url_for('static', filename='css/AddStudent.css')}}"/> 
+        <link rel="stylesheet" href="{{url_for('static', filename='css/AttendanceLog.css')}}"/> 
+        <link rel="stylesheet" href="{{url_for('static', filename='css/StudentsList.css')}}"/> 
+        <link rel="stylesheet" href="{{url_for('static', filename='css/DeleteStudent.css')}}"/>
+
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        
+        <!-- Include jQuery -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Include DataTables CSS and JS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+             
+        <title>{% block title%}Home{% endblock %}</title>
+    </head>
+    <body>
+        <!-- Base templates used in all of the website such as Navbar and Footer -->
+        <div class="App">
+
+            <!-- Navigation bar -->
+            <div class="navbar">
+                <h1 ><a href="/home" class="logo">MDX ATTENDANCE</a></h1>
+
+                <ul class='navLinks' id="navLinks">
+                    <li {% if request.path == '/upload' %}class="active"{% endif %}>
+                        <a href="/upload" class="navLink" >
+                            Upload
+                        </a>
+                    </li>
+                    <li {% if request.path == '/attendance/log' %}class="active"{% endif %}>
+                        <a href="/attendance/log" class="navLink" >
+                            Attendance
+                        </a>
+                    </li>
+                    <li {% if request.path == '/add/student' %}class="active"{% endif %}>
+                        <a href="/add/student" class="navLink" >
+                            Registration
+                        </a>
+                    </li>
+                    <li {% if request.path == '/student/list' %}class="active"{% endif %}>
+                        <a href="/student/list" class="navLink" >
+                            Students
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout" class="navLink" >
+                            Logout
+                        </a>
+                    </li>   
+                </ul>
+            </div>
+
+            <div class="appContent">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+
+            
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sass.js/0.9.12/sass.sync.min.js"></script>
+    <script src=".././static/js/client.js"></script>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block title %}Upload video{% endblock %} 
+
+<!-- This is the html page for video upload 
+The video uploaded here are sent to an S3 storage object -->
+
+{% block content %}
+    <div class="menuLeft">
+        <a href="/upload" class="navLink">Upload a video</a>
+        <a href="/attendance/log" class="navLink">View attendance</a>
+        <a href="/add/student" class="navLink">Register a student</a>
+        <a href="/add/student" class="navLink">Remove a student</a>
+        <a href="/student/list" class="navLink">View all students</a>
+    </div>
+
+    <div class="mainContainer">
+        <div class="videoUploadContainer">
+            <i class="fa fa-video"></i>
+            <h2>Upload class video  to start generatting attendance</h2>
+            
+            <form action="/upload_video" method="POST" enctype="multipart/form-data">
+                <input type="file" name="video" accept="video/*">
+                <button type="submit">Upload video</button>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

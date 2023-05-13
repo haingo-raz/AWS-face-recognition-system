@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% block title %}Face recognition{% endblock %} 
+
+<!-- This is the homepage html page -->
+
+{% block content %}
+
+    <div class="menuLeft">
+        <a href="/upload" class="navLink">Upload a video</a>
+        <a href="/attendance/log" class="navLink">View attendance</a>
+        <a href="/add/student" class="navLink">Register a student</a>
+        <a href="/student/list" class="navLink">View all students</a>
+    </div>
+
+    <div class="mainContainer">
+        <div class="title">
+            <h1>Face recognition based attendance system</h1>
+        </div>
+        <div class="content">
+            <div class="mainmenu">
+                <p>Steps to take to complete attendance system</p>
+                <ul>
+                    <li>Register a student</li>
+                    <li>Upload a class video</li>
+                    <li>View attendance log</li>
+                </ul>
+                <a href="/upload" class="btn">Go to video upload</a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

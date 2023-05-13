@@ -1,0 +1,35 @@
+@import './index.scss';
+
+.navbar{
+    background: $red;
+    display: flex;
+    padding: 15px 45px;
+    align-items: center;
+    
+    a{
+      color: $white; 
+      text-decoration: none; 
+    }
+    .navLinks{
+        margin-left: auto;
+        display: flex;
+        // justify-content: flex-end;
+        gap: 30px;
+
+    }
+
+    li{
+       list-style: none; 
+    }
+    .active{
+        padding-bottom: 2px;
+        border-bottom: 2px solid $white;        
+    }
+
+    .navLink{
+        &:hover{
+            padding-bottom: 2px;
+            border-bottom: 2px solid $white;
+        }
+    }
+}

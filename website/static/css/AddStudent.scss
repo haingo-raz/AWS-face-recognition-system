@@ -1,0 +1,45 @@
+@import './index.scss';
+
+.mainContainer{
+    height: 500px;
+    width: 800px;
+    display:flex;
+    flex-direction: column;
+
+    .title{
+        background: $black;
+        flex-basis: 40px;
+        color: $white;
+        padding: 5px 30px;
+        line-height: 1.9;
+    }
+    .content{
+        background: $red;
+        flex-grow: 1;
+        box-sizing: border-box;
+        padding: 30px;
+    }
+}
+
+.registerStudent{
+    form{
+        @include formStyle;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    input#name, input#id{
+        padding: 14px;
+        border-radius: 4px;
+        border: none;
+    }
+
+    .submitBtn{
+        @include buttonStyle;
+    }
+
+    .flashes{
+        list-style-type: none;
+        margin-top: 10px;
+    }
+}

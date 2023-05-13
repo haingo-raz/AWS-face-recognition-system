@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% block title %}Delete a student{% endblock %} 
+
+<!-- This is the html page for student removal -->
+
+{% block content %}
+    <div class="menuLeft">
+        <a href="/student/list" class="navLink">View students list</a>
+    </div>
+
+    <div class="mainContainer">     
+        <div class="title">
+            <h1>Delete a student</h1>
+        </div>
+
+        <div class="content">
+            <div class="deleteStudent">
+                <form method="POST" id="registrationForm" action="/delete_student" enctype="multipart/form-data">
+                    <label for="name">Name:</label>
+                    <br><br>
+
+                    <select 
+                        name="student_name" 
+                        id="student_name"
+                        onchange="getFaceId()"
+                        required
+                    >
+                        <option disabled selected value> -- select a student -- </option>
+                        <option value="student1">John Doe</option>
+                        <option value="student1">Jane Doe</option>
+                    </select>
+
+                    <br><br>
+
+                    <div class="formBtn">
+                        <input type="submit" class="submitBtn" value="Remove student">
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+@import './index.scss';
+
+// .attendanceLog{
+//     height: 540px;
+//     overflow: scroll;
+//     padding: 20px;
+//     -ms-overflow-style: none;  /* IE and Edge */
+//     scrollbar-width: none; 
+//     overflow-x: hidden;
+// }
+
+.attendancetable, .studentTable{
+    width: 800px; 
+    padding: 15px 5px;
+
+    th{
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $black;
+        color: white;
+    }
+
+    td, th{
+        border: 1px solid $grey;
+        padding: 8px;
+    }
+}
+
+
+#filter-date, .reload, #timestamp-input {
+    padding: 0.5rem;
+    border: 2px solid $white;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background: $white;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+td.present {
+    background-color: green;
+}
+
+td.absent {
+    background-color: red;
+}

@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.App {
+  background: #dcdcdc;
+  min-height: 3000px;
+}
+.App .appContent {
+  display: flex;
+  justify-content: center;
+  gap: 160px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.mainmenu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mainmenu ul {
+  list-style-type: square;
+  list-style-position: inside;
+}
+.mainmenu ul li a {
+  color: white;
+  text-decoration: none;
+}
+.mainmenu ul li a:hover {
+  text-decoration: underline;
+}
+.mainmenu ul li {
+  line-height: 1.7;
+  padding-left: 20px;
+}
+.mainmenu .btn {
+  background: #2f2552;
+  color: white;
+  padding: 8px 40px;
+  text-decoration: none;
+  width: 150px;
+  text-decoration: none;
+}
+
+.mainContainer {
+  height: 500px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer .title {
+  background: #000;
+  flex-basis: 40px;
+  color: white;
+  padding: 5px 30px;
+  line-height: 1.9;
+}
+.mainContainer .content {
+  background: #eb212e;
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.registerStudent form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  gap: 10px;
+  margin-top: 20px;
+}
+.registerStudent input#name, .registerStudent input#id {
+  padding: 14px;
+  border-radius: 4px;
+  border: none;
+}
+.registerStudent .submitBtn {
+  background: #2f2552;
+  color: white;
+  padding: 8px 40px;
+  text-decoration: none;
+}
+.registerStudent .flashes {
+  list-style-type: none;
+  margin-top: 10px;
+}/*# sourceMappingURL=AddStudent.css.map */

@@ -1,0 +1,32 @@
+{% extends "base.html" %} 
+{% block title %}List of registered students{% endblock %} 
+
+<!-- This is the html page for listing students
+The table displays data pulled from dynamodb students table -->
+
+{% block content %}
+
+    <div class="menuLeft">
+        <a href="/delete" class="navLink">Remove a student</a>
+    </div>
+
+    <div class="mainContainer">
+        <table id="studentTable" class="display studentTable">
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Picture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>S0012345</td>
+                <td>Jane Doe</td>
+                <td><img width="100" height="100" src="http://placekitten.com/200/300" alt="Student Image"></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

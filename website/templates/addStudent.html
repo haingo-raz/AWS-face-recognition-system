@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block title %}Register a new student{% endblock %} 
+
+<!-- This is the html page for adding new student -->
+
+{% block content %}
+    <div class="menuLeft">
+        <a href="/upload" class="navLink">Upload a video</a>
+        <a href="/attendance/log" class="navLink">View attendance</a>
+        <a href="/add/student" class="navLink">Register a student</a>
+        <a href="/student/list" class="navLink">View all students</a>
+    </div>
+
+    <div class="mainContainer">
+        <div class="title">
+            <h1>Register a new student</h1>
+        </div>
+        <div class="content">
+            <div class="registerStudent">
+                <form method="POST" id="registrationForm" action="/register_students" enctype="multipart/form-data">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" required>
+                    <br>
+                    <label for="id">ID:</label>
+                    <input type="text" name="id" id="id" required>
+                    <br>
+                    <label for="photo">Photo:</label>
+                    <input type="file" name="photo" id="photo" accept="image/*" required>
+                    <br>
+                    <div class="formBtn">
+                        <input type="submit" class="submitBtn" value="Register student">
+                        <input type="button" onclick="clearForm()" class="submitBtn" value="Cancel">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
