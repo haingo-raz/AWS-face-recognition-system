@@ -56,6 +56,27 @@ code {
   text-decoration: none;
 }
 
+.menuLeft {
+  height: 250px;
+  width: 300px;
+  background: #6e6e6e;
+  border: 2px solid #000;
+}
+.menuLeft a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #000;
+}
+.menuLeft a:hover {
+  background: #eb212e;
+}
+.menuLeft a.active {
+  background: #eb212e;
+}
+
 .navbar {
   background: #eb212e;
   display: flex;

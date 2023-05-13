@@ -6,13 +6,7 @@
     text-align: center;
     justify-content: center;
     gap: 20px;
-    border: 1px dashed $black;
     padding: 20px;
-
-    .feedback{
-        list-style-type: none;
-        color: $grey;
-    }
 
     form{
         @include formStyle;
@@ -21,6 +15,11 @@
         justify-content: center;
         align-items: center;
     }
+}
+
+.feedback{
+    list-style-type: none;
+    color: $white;
 }
 
 .uploadbtn{
