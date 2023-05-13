@@ -32,19 +32,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for row in rows %}
                     <tr>
-                        <td>John Doe</td>
-                        <td>13 Mai 2023</td>
-                        <td>S00123456</td>
-                        <td>Present</td>
+                        {% for val in row.values() %}
+                        <td>{{ val }}</td>
+                        {% endfor %}
                     </tr>
-                    <tr>
-                        <td>Jane Doe</td>
-                        <td>13 Mai 2023</td>
-                        <td>S00123457</td>
-                        <td>Absent</td>
-                    </tr>
-                </tbody>
+                    {% endfor %}
+                </tbody>''
             </table>
         </div>
     </div>

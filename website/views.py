@@ -13,6 +13,7 @@ students_bucket = "studentsdetails" # Where images are uploaded
 students_table = "students" # Where students' details are stored 
 collection_id = 'studentsInfo' # specify aws rekognition face collection 
 video_bucket = "recordedvideo"
+attendance_table = "attendancetable"
 
 #Defining routes
 views = Blueprint('views', __name__)
@@ -83,7 +84,19 @@ def renderDelete():
 @views.route('/attendance/log')
 def renderAttendanceLog():
     if 'email' in session:
-        return render_template("attendanceLog.html")
+        #retrieve dynamoDB items 
+        response = dynamodb.scan(TableName=attendance_table) 
+        items = response['Items']
+
+        #get table rows 
+        rows = []
+        for item in items:
+            row = {}
+            for key, val in item.items():
+                row[key] = val['S'] if 'S' in val else val['N']
+            rows.append(row)
+
+        return render_template("attendanceLog.html", rows=rows)
     return redirect(url_for('views.renderLogin'))
     
 # Render students list html page
