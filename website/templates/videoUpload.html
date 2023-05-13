@@ -26,6 +26,17 @@ The video uploaded here are sent to an S3 storage object -->
                     <input type="file" name="video" accept="video/*">
                     <button type="submit" class="uploadbtn">Upload video</button>
                 </form>
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="feedback">
+                        <!-- Message received as response from server -->
+                        {% for message in messages %}
+                            <li><i>{{ message }}</i></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
             </div>
         </div>
     </div>

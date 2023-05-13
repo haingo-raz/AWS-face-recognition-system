@@ -12,6 +12,7 @@ dynamodb = boto3.client('dynamodb')
 students_bucket = "studentsdetails" # Where images are uploaded
 students_table = "students" # Where students' details are stored 
 collection_id = 'studentsInfo' # specify aws rekognition face collection 
+video_bucket = "recordedvideo"
 
 #Defining routes
 views = Blueprint('views', __name__)
@@ -230,6 +231,16 @@ def register():
 #Function to upload video to S3 bucket 
 @views.route('/upload_video', methods=['POST'])
 def upload_video():
+    file = request.files.get('video')
+    filename = file.filename
+
+    #upload the video to the recordedvideo S3 bucket
+    if file: 
+        s3.upload_fileobj(file, video_bucket, filename)
+        flash('Video uploaded successfully! Please wait for a couple of minutes before the attendance log can be generated')
+    else:
+       flash('Please choose a video file to upload.')# if no file input provided
+
     return render_template("videoUpload.html")
 
 
@@ -237,8 +248,8 @@ def upload_video():
 @views.route('/delete_student', methods=['GET', 'POST'])
 def remove():
     
-    student_name = request.form['studentname'] #studentname will be set to external image id
-    face_id = str(request.form['face_id']) #Get the studentID 
+    student_name = request.form['studentname'] # studentname will be set to external image id
+    face_id = str(request.form['face_id']) # Get the studentID 
     
     face_list = []
 
