@@ -7,7 +7,11 @@ The table displays data pulled from dynamodb students table -->
 {% block content %}
 
     <div class="menuLeft">
-        <a href="/delete" class="navLink">Remove a student</a>
+      <a href="/upload" {% if request.path == '/upload' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Upload a video</a>
+        <a href="/attendance/log"{% if request.path == '/attendance/log' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View attendance</a>
+        <a href="/add/student" {% if request.path == '/add/student' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Register a student</a>
+        <a href="/delete" {% if request.path == '/delete' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Remove a student</a>
+        <a href="/student/list" {% if request.path == '/student/list' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View all students</a>
     </div>
 
     <div class="mainContainer">

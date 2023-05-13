@@ -6,22 +6,27 @@ The video uploaded here are sent to an S3 storage object -->
 
 {% block content %}
     <div class="menuLeft">
-        <a href="/upload" class="navLink">Upload a video</a>
-        <a href="/attendance/log" class="navLink">View attendance</a>
-        <a href="/add/student" class="navLink">Register a student</a>
-        <a href="/add/student" class="navLink">Remove a student</a>
-        <a href="/student/list" class="navLink">View all students</a>
+        <a href="/upload" {% if request.path == '/upload' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Upload a video</a>
+        <a href="/attendance/log"{% if request.path == '/attendance/log' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View attendance</a>
+        <a href="/add/student" {% if request.path == '/add/student' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Register a student</a>
+        <a href="/delete" {% if request.path == '/delete' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Remove a student</a>
+        <a href="/student/list" {% if request.path == '/student/list' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View all students</a>
     </div>
 
     <div class="mainContainer">
-        <div class="videoUploadContainer">
-            <i class="fa fa-video"></i>
+        <div class="title">
             <h2>Upload class video  to start generatting attendance</h2>
-            
-            <form action="/upload_video" method="POST" enctype="multipart/form-data">
-                <input type="file" name="video" accept="video/*">
-                <button type="submit">Upload video</button>
-            </form>
+        </div>
+        <div class="content">
+            <div class="videoUploadContainer">
+                <i class="fa fa-video" style="font-size:42px;"></i>
+                <h3>Select and upload a video</h3>
+                
+                <form action="/upload_video" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="video" accept="video/*">
+                    <button type="submit" class="uploadbtn">Upload video</button>
+                </form>
+            </div>
         </div>
     </div>
     

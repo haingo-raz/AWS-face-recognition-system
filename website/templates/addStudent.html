@@ -5,10 +5,11 @@
 
 {% block content %}
     <div class="menuLeft">
-        <a href="/upload" class="navLink">Upload a video</a>
-        <a href="/attendance/log" class="navLink">View attendance</a>
-        <a href="/add/student" class="navLink">Register a student</a>
-        <a href="/student/list" class="navLink">View all students</a>
+        <a href="/upload" {% if request.path == '/upload' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Upload a video</a>
+        <a href="/attendance/log"{% if request.path == '/attendance/log' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View attendance</a>
+        <a href="/add/student" {% if request.path == '/add/student' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Register a student</a>
+        <a href="/delete" {% if request.path == '/delete' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> Remove a student</a>
+        <a href="/student/list" {% if request.path == '/student/list' %}class="active"{% endif %}> <i class="fa fa-arrow-circle-right" style="font-size:16px"></i> View all students</a>
     </div>
 
     <div class="mainContainer">

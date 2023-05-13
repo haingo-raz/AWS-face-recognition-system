@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
 import boto3
 
 # Rekognition instance
@@ -19,40 +19,81 @@ def renderLogin():
 #Render the index.html file 
 @views.route('/home')
 def renderHome():
-    return render_template("index.html")
+    if 'email' in session:
+        return render_template("index.html")
+    return redirect(url_for('views.renderLogin'))
 
 
 #Render student registration html page 
 @views.route('/add/student')
 def renderStudent():
-    return render_template("addStudent.html")
+    if 'email' in session:
+        return render_template("addStudent.html")
+    return redirect(url_for('views.renderLogin'))
 
 # Render video upload html page
 @views.route('/upload')
 def renderVideo():
-    return render_template("videoUpload.html")
+    if 'email' in session:
+        return render_template("videoUpload.html")
+    return redirect(url_for('views.renderLogin'))
 
 # Render student deletion page
 @views.route('/delete')
 def renderDelete():
-    return render_template("deleteStudents.html")
+    if 'email' in session:
+        return render_template("deleteStudents.html")
+    return redirect(url_for('views.renderLogin'))
     
 # Render attendance log html page
 @views.route('/attendance/log')
 def renderAttendanceLog():
-    return render_template("attendanceLog.html")
-
+    if 'email' in session:
+        return render_template("attendanceLog.html")
+    return redirect(url_for('views.renderLogin'))
+    
 # Render students list html page
 @views.route('/student/list')
 def renderStudentList():
-    return render_template("studentsList.html")
+    if 'email' in session:
+        return render_template("studentsList.html")
+    return redirect(url_for('views.renderLogin'))
 
 ##################################Functions####################################
 
 #Function to allow admin to login
 @views.route('/login_admin', methods=['POST'])
 def login():
-    return render_template('login.html')
+# Get the email and password from the login form
+    email = request.form['email'].lower() # put all the letters in small case
+    password = request.form['password']
+
+    adminTable = "admin" # DynamoDB table 
+
+    # Check if the email and password match a record in the DynamoDB table
+    try:
+        response = dynamodb.get_item(
+            TableName= adminTable,
+            Key={
+                'email': {'S': email}
+            }
+        )
+
+        # If the email exists and the password matches, redirect to the home page
+        if 'Item' in response:
+            item = response['Item']
+            if 'password' in item and item['password']['S'] == password:
+                # Save email in session
+                session['email'] = request.form['email']
+                # flash("Successfully logged in!")
+                return render_template('index.html')
+
+    except Exception as e:
+        print(e)
+
+    # If the email or password is incorrect, display an error message
+    message = 'Incorrect email or password'
+    return render_template('login.html', message=message)
 
 
 #Function that handles adding students to face collection 

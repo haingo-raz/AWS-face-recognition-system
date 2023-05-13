@@ -60,20 +60,19 @@ code {
   height: 250px;
   width: 300px;
   background: #6e6e6e;
+  border: 2px solid #000;
 }
 .menuLeft a {
   text-decoration: none;
   color: white;
   display: block;
-  width: 100%;
-  padding: 15px 0px;
-  text-align: center;
-  border-bottom: 2px solid #eb212e;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #000;
 }
 .menuLeft a:hover {
   background: #eb212e;
 }
-
-.menuLeftLink {
-  background: red;
+.menuLeft a.active {
+  background: #eb212e;
 }/*# sourceMappingURL=StudentsList.css.map */

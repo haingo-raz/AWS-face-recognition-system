@@ -3,6 +3,8 @@
 .videoUploadContainer{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
     gap: 20px;
     border: 1px dashed $black;
     padding: 20px;
@@ -14,20 +16,23 @@
 
     form{
         @include formStyle;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
+}
 
-    form button{
-        @include buttonStyle;
-        background: $red;
-        width: 200px;
-        border: none;
-        padding: 10px 20px;
+.uploadbtn{
+    @include buttonStyle;
+    background: $dark-blue;
+    text-decoration: none;
+    width: 200px;
+    border: none;
+    padding: 10px 20px;
 
-        &:hover{
-            transition:cubic-bezier(0.075, 0.82, 0.165, 1);
-            cursor: pointer;
-            text-decoration: underline;
-        }
+    &:hover{
+        cursor: pointer;
+        text-decoration: none;
     }
-
 }
