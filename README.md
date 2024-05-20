@@ -2,7 +2,7 @@
 
 ## About 
 
-This project is a face recognition based attendance system that works with stored/recorded video. It is mostly recommended in a class setting, but it can be used in other places such as an office or a social event. Upon a video upload, the attendance operation will be triggered and the attendance log will be displayed on the front end of the website. A list of registered individuals is also displayed on the website. Furthermore, a person can be removed from the list.
+This project is a face recognition based attendance system that works with stored/recorded video. It is mostly recommended in a class setting, but it can be used in other places such as an office or a social event. Upon a video upload, the attendance operation will be triggered and the attendance log will be displayed on the front end of the website. Students can be registered in and deleted from the system.
 
 ## Aim
 - This research aims to improve conventional attendance systems at Universities using recent technology.
