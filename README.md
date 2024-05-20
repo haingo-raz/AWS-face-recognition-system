@@ -19,7 +19,7 @@ This project is a face recognition based attendance system that works with store
 - Javascript
 
 | AWS Service | Functionality| Usage in the project|
-|-------------|--------------|
+|-------------|--------------|---------------------|
 |AWS Rekognition |Video analysis|analyze the faces in the uploaded videos|
 |AWS DynamoDB|NoSQL Database| Used to store login details, student details and attendance results|
 |AWS Lambda|Functions called in response to other AWS events| Manage the face recognition operation|
